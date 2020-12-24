@@ -1,28 +1,42 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <app-pizza v-bind:pizzaName='pizzaName' v-bind:pizzaPrice='pizzaPrice' v-bind:pizzaSize='pizzaSize'>
+            <li>{{pizzaMainComp}}</li>
+            <li>{{pizzaSecComp}}</li>
+            <li>{{pizzaThirdComp}}</li>
+        </app-pizza>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Pizza from './components/Pizza.vue'
 
 export default {
-  name: 'App',
+  name: 'app',
+  data(){
+    return {
+      pizzaName: 'ШПицца от Школы программистов',
+      pizzaPrice: 600,
+      pizzaSize: '30 см',
+      pizzaMainComp: 'Сырокопчёные колбаски;',
+      pizzaSecComp: 'Хрустящий солёный огурчик;',
+      pizzaThirdComp: 'Тончайшее тесто из высшего сорта муки.'
+    }
+  },
   components: {
-    HelloWorld
-  }
+    appPizza: Pizza
+  } 
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: rgb(244, 123, 186);
+  background: linear-gradient(-25deg, rgba(87, 176, 255, 0.5) 20%, rgba(20, 70, 163, 0.5) 80%);
+  font-family: sans-serif;
 }
 </style>
